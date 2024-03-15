@@ -12,13 +12,13 @@ SECONDARY_CAMERA = 1
 FACE_DETECTOR_PATH = "Models/haarcascade_frontalface_default.xml"
 
 # kalman filter params
-CYCLE_DELAY = 0.1
+SAMPLING_TIME = 0.1
 ACCELERATION_X = ACCELERATION_Y = STD_ACC = 1
 STD_MEAS_X = STD_MEAS_Y = 0.1
 
 def main():
     video_cap = cv2.VideoCapture(DEFAULT_CAMERA)
-    kf = KalmanFilter(CYCLE_DELAY, ACCELERATION_X, ACCELERATION_Y, STD_ACC, STD_MEAS_X, STD_MEAS_Y)
+    kf = KalmanFilter(SAMPLING_TIME, ACCELERATION_X, ACCELERATION_Y, STD_ACC, STD_MEAS_X, STD_MEAS_Y)
 
     while True:
         _, input_frame = video_cap.read()
